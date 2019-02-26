@@ -6,5 +6,5 @@ app.config['JSON_AS_ASCII'] = False
 
 @app.route("/extensao/<string:num>")
 def hello(num):
-    num = int(num)
-    return jsonify({'extenso': conversor.get_extenso(num)})
+    # num = int(num)
+    return jsonify({'extenso': conversor.get_extenso(str(num))})
