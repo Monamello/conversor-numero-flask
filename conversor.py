@@ -28,7 +28,7 @@ def get_centena(inteiro_str):
         return matriz_num[3][int(inteiro_str[0])], False
 
 def get_milhar(inteiro_str):
-    return get_extenso(int(inteiro_str)) + ' mil'
+    return get_extenso(inteiro_str) + ' mil'
 
 def get_milhao(inteiro_str):
     inteiro = int(inteiro_str)
@@ -36,17 +36,20 @@ def get_milhao(inteiro_str):
         return 'um milhão'
     return verifica_extenso(inteiro) + ' milhoes'
 
-def get_extenso(inteiro):
+def get_extenso(inteiro_str):
     num = 0
-    antes_numeros = '' 
-    inteiro_str = str(inteiro)
-    if inteiro_str[0] == '-':
+    antes_numeros = ''
+    if inteiro_str.startswith('-'):
         antes_numeros = 'menos '
         inteiro_str = inteiro_str[1:]
+    inteiro_str = str(int(inteiro_str))
     tamanho_inteiro = len(inteiro_str)
     
+    if inteiro_str == '0':
+        return antes_numeros + 'zero'
+
     if tamanho_inteiro == 1:
-        return get_unidade(inteiro)
+        return antes_numeros + get_unidade(inteiro_str)
 
     elif tamanho_inteiro == 2 :
         dezena, toda = get_dezena(inteiro_str)
