@@ -53,3 +53,6 @@ Abra o navegador e digite a url:
 #### Com os valores default de host e porta, a URL ficaria:
 
 ```http://127.0.0.1:5000/extensao/<valor-para-converter>```
+
+###### Para utlizaçao com docker, deve ser passado o --host 0.0.0.0
+###### A versão de python utilizada é a Python3
