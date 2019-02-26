@@ -42,6 +42,7 @@ def get_extenso(inteiro_str):
     if inteiro_str.startswith('-'):
         antes_numeros = 'menos '
         inteiro_str = inteiro_str[1:]
+    inteiro_str = str(int(inteiro_str))
     tamanho_inteiro = len(inteiro_str)
     
     if inteiro_str == '0':
