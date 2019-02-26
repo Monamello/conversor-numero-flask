@@ -7,7 +7,9 @@ app.config['JSON_AS_ASCII'] = False
 @app.route("/extensao/<string:num>")
 def hello(num):
     try:
-        int(num)
-        return jsonify({'extenso': conversor.get_extenso(str(num))}), 200
+        num_int = int(num)
+        if num_int <= 99999 and num_int >= -99999:
+            return jsonify({'extenso': conversor.get_extenso(str(num))}), 200
     except:
-        return jsonify({'erro': 'Esse parâmetro não é um número.'}), 400
+        pass
+    return jsonify({'erro': 'Esse parâmetro não suportado.'}), 400
